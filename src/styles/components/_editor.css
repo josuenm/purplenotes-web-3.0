@@ -1,0 +1,42 @@
+.ql-toolbar {
+  @apply !bg-neutral-800 !p-2 rounded-t-md !border-b-0 !border-t-2 !border-x-2 !border-neutral-700;
+}
+
+.ql-toolbar .ql-stroke {
+  @apply !stroke-white;
+}
+
+.ql-toolbar .ql-fill {
+  @apply !stroke-white;
+}
+
+.ql-toolbar .ql-picker {
+  @apply !text-white;
+}
+.ql-toolbar .ql-picker .ql-active {
+  @apply !text-primary;
+}
+
+.ql-toolbar .ql-formats .ql-picker .ql-picker-item {
+  @apply !text-black hover:!text-primary;
+}
+
+.ql-toolbar .ql-formats .ql-active .ql-stroke {
+  @apply !stroke-primary;
+}
+
+.ql-toolbar .ql-formats .ql-active .ql-fill {
+  @apply !stroke-primary;
+}
+
+.ql-container {
+  @apply bg-neutral-800 rounded-b-md !border-t-0 !border-b-2 !border-x-2 !border-neutral-700;
+}
+
+.ql-container .ql-editor {
+  @apply min-h-[300px];
+}
+
+.ql-editor.ql-blank::before {
+  @apply !text-white/50;
+}
