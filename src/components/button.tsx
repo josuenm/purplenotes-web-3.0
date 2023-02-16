@@ -20,7 +20,7 @@ export function SoftButton({ className, children, ...rest }: ButtonProps) {
     <>
       <button
         {...rest}
-        className={`rounded-md p-2 text-primary duration-300 bg-primary/20 text-primary md:bg-transparent md:hover:bg-primary/20 flex items-center justify-center gap-1 disabled:opacity-75 ${className}`}
+        className={`rounded-md p-2 text-primary duration-300 bg-primary/20 text-primary bg-transparent active:bg-primary/20 md:hover:bg-primary/20 flex items-center justify-center gap-1 disabled:opacity-75 ${className}`}
       >
         {children}
       </button>
