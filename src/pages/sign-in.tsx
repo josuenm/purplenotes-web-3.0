@@ -8,6 +8,7 @@ import {
 } from "@/services/react-hook-form/sign-in-validation";
 import { saveUser } from "@/utils/helpers";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import nookies from "nookies";
@@ -48,6 +49,9 @@ export default function SignIn() {
 
   return (
     <>
+      <Head>
+        <title>Sign In - Purple Notes</title>
+      </Head>
       <HeaderWithBackButton />
 
       <main className="safe-area flex justify-center">

@@ -15,6 +15,7 @@ import {
 import { getUser, removeUser, saveUser } from "@/utils/helpers";
 import { Dialog, Transition } from "@headlessui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -32,6 +33,9 @@ export default function UserEdit() {
 
   return (
     <>
+      <Head>
+        <title>Profile - Purple Notes</title>
+      </Head>
       <HeaderWithBackButton />
 
       <div className="py-5">

@@ -8,6 +8,7 @@ import {
 } from "@/services/react-hook-form/sign-up-validation";
 import { saveUser } from "@/utils/helpers";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import nookies from "nookies";
@@ -53,6 +54,9 @@ export default function SignUp() {
 
   return (
     <>
+      <Head>
+        <title>Sign Up - Purple Notes</title>
+      </Head>
       <HeaderWithBackButton />
 
       <main className="safe-area flex justify-center">
