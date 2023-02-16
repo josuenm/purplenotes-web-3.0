@@ -69,11 +69,8 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 }
 
 export default function Note({ note }: PageProps) {
-  const router = useRouter();
-  const { id } = router.query;
   const { errorNotification } = useGlobalTools();
-
-  const token = nookies.get()["purplenotes.token"] || undefined;
+  const router = useRouter();
 
   useEffect(() => {
     if (!note) {
@@ -83,6 +80,8 @@ export default function Note({ note }: PageProps) {
   }, []);
 
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
+
+  const openDeleteModal = () => setDeleteModal(true);
 
   const formatTitle = (value: string, max: number) => {
     return value.length > max ? value.slice(0, max) + "..." : value;
@@ -103,20 +102,7 @@ export default function Note({ note }: PageProps) {
         <div className="safe-area">
           <DeleteNoteModal isOpen={deleteModal} setIsOpen={setDeleteModal} />
 
-          <div className="fixed right-2/4 translate-x-2/4 bottom-12 bg-neutral-800 p-1 rounded-full grid grid-cols-2">
-            <Link
-              href={`/${id}/edit`}
-              className="px-2 py-1 rounded-full hover:bg-primary text-center"
-            >
-              Edit
-            </Link>
-            <button
-              className="px-2 py-1 rounded-full hover:bg-primary"
-              onClick={() => setDeleteModal(true)}
-            >
-              Delete
-            </button>
-          </div>
+          <BottomNavigation openDeleteModal={openDeleteModal} />
 
           <main className="mt-12 mb-20">
             <div className="mb-20">
@@ -152,6 +138,34 @@ export default function Note({ note }: PageProps) {
         </div>
       )}
     </>
+  );
+}
+
+function BottomNavigation({
+  openDeleteModal,
+}: {
+  openDeleteModal: () => void;
+}) {
+  const router = useRouter();
+  const { id } = router.query;
+  const token = nookies.get()["purplenotes.token"] || undefined;
+
+  if (!token) <></>;
+  return (
+    <div className="fixed right-2/4 translate-x-2/4 bottom-12 bg-neutral-800 p-1 rounded-full grid grid-cols-2">
+      <Link
+        href={`/${id}/edit`}
+        className="px-2 py-1 rounded-full hover:bg-primary text-center"
+      >
+        Edit
+      </Link>
+      <button
+        className="px-2 py-1 rounded-full hover:bg-primary"
+        onClick={openDeleteModal}
+      >
+        Delete
+      </button>
+    </div>
   );
 }
 
