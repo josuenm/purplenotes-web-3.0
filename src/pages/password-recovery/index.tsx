@@ -7,6 +7,7 @@ import {
   EmailInfoSchema,
 } from "@/services/react-hook-form/email-validation";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Head from "next/head";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -44,6 +45,10 @@ export default function PasswordRecovery() {
 
   return (
     <>
+      <Head>
+        <title>Password Recovery - Purple Notes</title>
+      </Head>
+
       <HeaderWithBackButton />
 
       <main className="safe-area !max-w-[330px] min-h-screen flex flex-col justify-center">

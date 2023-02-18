@@ -94,7 +94,7 @@ export default function PasswordRecovery() {
   return (
     <>
       <Head>
-        <title>Password Recovery - Purple Notes</title>
+        <title>Confirm Password Recovery - Purple Notes</title>
       </Head>
 
       <HeaderWithBackButton />

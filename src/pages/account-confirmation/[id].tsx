@@ -3,6 +3,7 @@ import { LoadingScreen } from "@/components/loading-screen";
 import { useGlobalTools } from "@/contexts/global-tools-conext";
 import { userApi } from "@/services/axios/user-api";
 import { getUser, saveUser } from "@/utils/helpers";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
@@ -69,6 +70,9 @@ export default function ConfirmAccount() {
 
   return (
     <>
+      <Head>
+        <title>Account Confirmation - Purple Notes</title>
+      </Head>
       {isLoading && <LoadingScreen />}
 
       <main className="safe-area min-h-screen flex flex-col justify-center items-center gap-3">
