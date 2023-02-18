@@ -1,6 +1,7 @@
 import { NormalButton, SoftButton } from "@/components/button";
 import { HeaderWithBackButton } from "@/components/header";
 import { Input } from "@/components/input";
+import { useGlobalTools } from "@/contexts/global-tools-conext";
 import { userApi } from "@/services/axios/user-api";
 import {
   schema,
@@ -18,6 +19,8 @@ import { useForm } from "react-hook-form";
 export default function SignIn() {
   const navigate = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+
+  const { warningNotification, errorNotification } = useGlobalTools();
 
   const {
     register,
@@ -39,6 +42,11 @@ export default function SignIn() {
         break;
 
       case 401:
+        errorNotification("Email or password invalid");
+        break;
+
+      case 404:
+        warningNotification("User not found");
         break;
 
       case 500:

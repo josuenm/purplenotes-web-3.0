@@ -14,9 +14,9 @@ export function PageAnimation({ children }: PageAnimationProps) {
       <motion.div
         key={router.route}
         transition={{ duration: 0.45 }}
-        initial={{ translateX: "-100vw" }}
-        animate={{ translateX: "0" }}
-        exit={{ translateX: "200vw" }}
+        initial={{ translateX: "100vw" }}
+        animate={{ translateX: "0vw" }}
+        exit={{ translateX: "-100vw" }}
         style={{ overflow: "auto" }}
       >
         {children}

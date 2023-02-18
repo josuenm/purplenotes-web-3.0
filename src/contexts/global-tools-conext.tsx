@@ -17,15 +17,15 @@ const Context = createContext({} as ContextProps);
 export default function ContextProvider({ children }: ProviderProps) {
   const errorNotification = (msg: string) =>
     toast.error(msg, {
-      autoClose: 2000,
+      autoClose: 3000,
     });
   const successNotification = (msg: string) =>
     toast.success(msg, {
-      autoClose: 2000,
+      autoClose: 3000,
     });
   const warningNotification = (msg: string) =>
     toast.warning(msg, {
-      autoClose: 2000,
+      autoClose: 3000,
     });
 
   return (

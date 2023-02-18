@@ -51,4 +51,54 @@ export const userApi = {
       .post("/user/password-recovery", data)
       .catch((res) => res.response);
   },
+
+  confirmPasswordRecovery: async (id: string, data: { password: string }) => {
+    return await api
+      .post(`/user/password-recovery/${id}/confirm`, data)
+      .catch((res) => res.response);
+  },
+
+  getPasswordRecovery: async (id: string) => {
+    return await api
+      .get(`/user/password-recovery/${id}`)
+      .catch((res) => res.response);
+  },
+
+  getAccountConfirmation: async () => {
+    return await api
+      .get("user/account-confirmation", {
+        headers: {
+          authorization: `Baerer ${nookies.get()["purplenotes.token"]}`,
+        },
+      })
+      .catch((res) => res.response);
+  },
+
+  sendAccountConfirmation: async () => {
+    return await api
+      .post(
+        "user/account-confirmation",
+        {},
+        {
+          headers: {
+            authorization: `Baerer ${nookies.get()["purplenotes.token"]}`,
+          },
+        }
+      )
+      .catch((res) => res.response);
+  },
+
+  confirmAccount: async () => {
+    return await api
+      .post(
+        "user/account-confirmation/confirm",
+        {},
+        {
+          headers: {
+            authorization: `Baerer ${nookies.get()["purplenotes.token"]}`,
+          },
+        }
+      )
+      .catch((res) => res.response);
+  },
 };

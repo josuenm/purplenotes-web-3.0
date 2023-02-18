@@ -1,6 +1,7 @@
 import { UserProps } from "@/types/user-props";
 import { getUser, removeUser } from "@/utils/helpers";
 import { Menu, Transition } from "@headlessui/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import nookies from "nookies";
@@ -8,6 +9,7 @@ import { Fragment, HTMLAttributes, useEffect, useState } from "react";
 import { BsFillPersonFill } from "react-icons/bs";
 import { IoIosArrowBack, IoMdExit } from "react-icons/io";
 import { IoSettingsOutline } from "react-icons/io5";
+import Logo from "../../public/logo.svg";
 import { SoftButton } from "./button";
 
 interface HeaderProps extends HTMLAttributes<HTMLElement> {}
@@ -29,8 +31,8 @@ export function HeaderWithBackButton({
   ...rest
 }: HeaderProps) {
   return (
-    <header {...rest} className={`w-full py-2 flex items-center ${className}`}>
-      <main className="safe-area">
+    <header {...rest} className={`w-full py-2 ${className}`}>
+      <main className="safe-area flex items-center justify-between">
         <BackButton />
         {children}
       </main>
@@ -81,7 +83,11 @@ export function DashboardHeader({ className, ...rest }: HeaderProps) {
         "bg-neutral-600/10 backdrop-blur border-b-2 border-b-neutral-800"
       } ${className}`}
     >
-      <main className="safe-area flex justify-between">
+      <main className="safe-area flex justify-between items-center">
+        <Link href="/" className="cursor-pointer">
+          <Image src={Logo} alt="Logo" className="w-8 h-8" />
+        </Link>
+
         <Menu as="div" className="relative ml-auto">
           <div className="flex items-center gap-2">
             <Menu.Button as="div">
